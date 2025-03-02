@@ -68,8 +68,7 @@ free for non-commercial and open-source use.
 
 The CUDA library can be downloaded from the
 (https://developer.nvidia.com/cuda-toolkit-archive).
-The only supported version are 9.0 - 10.2, however, the code is supposed to
-work with upcoming CUDA 11.0, but we cannot guarantee that.
+The only supported version are >=12.0.
 
 
 ### The HDF5 library installation procedure
@@ -98,7 +97,7 @@ work with upcoming CUDA 11.0, but we cannot guarantee that.
 
 ### The CUDA installation procedure
 
-  1. Download CUDA version 10.2
+  1. Download CUDA version **12.0**
      (https://developer.nvidia.com/cuda-toolkit-archive).
   2. Follow the NVIDIA official installation guide for Windows
      (http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)
@@ -164,7 +163,7 @@ compile the `kspaceFirstOrder3D-CUDA` code.
     #CPU_ARCH = AVX512
     ```
 
- 6. If using a different version of CUDA than 10.x, it may be necessary to
+ 6. If using a different version of CUDA than 12.x, it may be necessary to
     removeor add additional CUDA GPU architectures to support most recent GPUs.
     ```bash
     # What CUDA GPU architectures to include in the binary
@@ -180,7 +179,13 @@ compile the `kspaceFirstOrder3D-CUDA` code.
                 --generate-code arch=compute_62,code=sm_62 \
                 --generate-code arch=compute_70,code=sm_70 \
                 --generate-code arch=compute_72,code=sm_72 \
-                --generate-code arch=compute_75,code=sm_75
+                --generate-code arch=compute_75,code=sm_75 \
+                --generate-code arch=compute_80,code=sm_80 \
+                --generate-code arch=compute_87,code=sm_87 \
+                --generate-code arch=compute_89,code=sm_89 \
+                --generate-code arch=compute_90,code=sm_90 \
+                --generate-code arch=compute_90a,code=sm_90a
+    
     ```
  7. Close the makefile and compile the source code by typing:
     ```bash
